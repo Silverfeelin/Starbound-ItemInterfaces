@@ -8,6 +8,7 @@ Feel free to fork this for your own interfaces, or simply download the source co
 - [Setting up your interface](#setting-up-your-interface)
 - [Setting up your item](#setting-up-your-item)
 - [Planned](#planned)
+- [Potential Issues](#potential-issues)
 - [Licenses](#licenses)
 
 ## Features
@@ -26,6 +27,9 @@ Feel free to fork this for your own interfaces, or simply download the source co
 
 ## Planned
 No additional features planned yet. Feel free to create a feature request by adding the `enhancement` tag to [a new Issue](https://github.com/Silverfeelin/Starbound-ItemInterfaces/issues/new).
+
+## Potential Issues
+* This mod is incompatible with other mods that affect the `fossilbrush.lua` script. This script is used to keep the mod from causing issues on servers.
 
 ## Licenses
 The icon used for the sample item is courtesy of Yusuke Kamiyamane, and can be found in his Fugue Icons pack. The icon pack falls under the Creative Commons 3.0 license.
