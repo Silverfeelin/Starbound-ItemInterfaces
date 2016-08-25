@@ -1,5 +1,5 @@
 # Item Interfaces
-A modders template for custom interfaces opened through active items. By using the fossil brush script, the items and interfaces are vanilla-multiplayer compatible.  
+A modders template for custom interfaces opened by activating active items. By using the fossil brush script, the items and interfaces are vanilla-multiplayer compatible.  
 Feel free to fork this for your own interfaces, or simply download the source code and work from there!
 
 ## Table of Contents
