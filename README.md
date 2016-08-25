@@ -32,6 +32,7 @@ Feel free to fork this for your own interfaces, or simply download the source co
  * If you want to set up multiple interfaces, it's recommended to create a copy of the file.
 * Change the `itemInterface` path to the path of the interface `json` file you made in [Setting up your interface](#setting-up-your-interface).
  * The key and value can be found near the beginning of the command, right after `shortdescription`, `description` and `category`.
+* Optionally, set other parameters such as the `shortdescription`, `description` and `category`.
 * Save the file.
 
 ## Getting your item
