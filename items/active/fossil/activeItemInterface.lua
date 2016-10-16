@@ -10,6 +10,7 @@
 ]]
 
 local interfacePath = config.getParameter("itemInterface")
+local interfaceType = config.getParameter("itemInterfaceType") or "ScriptConsole"
 
 --[[
   Check if this item is a valid Item Interfaces active item.
@@ -46,7 +47,7 @@ end
   @param fireMode - "primary" or "alt, indicating which mouse button is held down.
 ]]
 function itemInterface.activate(fireMode, shiftHeld)
-  activeItem.interact("ScriptConsole", activeItem.ownerEntityId(), root.assetJson(interfacePath))
+  activeItem.interact(interfaceType, activeItem.ownerEntityId(), root.assetJson(interfacePath))
 end
 
 --[[
