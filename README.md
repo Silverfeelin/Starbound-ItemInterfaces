@@ -1,6 +1,7 @@
 # Item Interfaces
-A modders template for custom interfaces opened by activating active items. By using the fossil brush script, the items and interfaces are vanilla-multiplayer compatible.  
-Feel free to fork this for your own interfaces, or simply download the source code and work from there!
+A mod that allows modders to create custom interfaces that are opened by activating an active item.
+
+By using the fossil brush script, the items and interfaces are vanilla-multiplayer compatible.
 
 ## Table of Contents
 - [Features](#features)
@@ -10,46 +11,53 @@ Feel free to fork this for your own interfaces, or simply download the source co
 - [Getting your item](#getting-your-item)
 - [Planned](#planned)
 - [Potential Issues](#potential-issues)
-- [Licenses](#licenses)
 
 ## Features
-* Method of opening interfaces when activating custom items that are vanilla multiplayer-compatible.
-* Template for an item interface to get you started.
+
+* Method of opening `ScriptPane` and `ScriptConsole` interfaces when activating custom items that are vanilla multiplayer-compatible.
+* Reading the ItemDescriptor used to open the interface, from inside the interface script.
+* Templates for both a `ScriptPane` and `ScriptConsole` item interface to get you started.
 
 ## Installation
-* [Download](https://github.com/Silverfeelin/Starbound-ItemInterfaces/archive/master.zip) the source code of this repository.
-* Place the source code in a mod folder (eg. `/mods/MyItemInterface/`).
+* [Download](https://github.com/Silverfeelin/Starbound-ItemInterfaces) the latest release.
+* Place the `ItemInterfaces.pak` in your mod folder (`/Starbound/mods/ItemInterfaces.pak`).
+
+#### Including the mod in your own release
+You're free to include the `ItemInterfaces.pak` files from the [Release page](https://github.com/Silverfeelin/Starbound-ItemInterfaces/releases) in your own releases.
+
+Please do keep in mind that this packed mod contains the `LICENSE` file, also found in this repository. If you're going to alter or redistribute assets (you probably shouldn't need to), refer to the license.
+
+To keep it simple; repacking or just redistributing (parts of) the ItemInterfaces mod without this license is not allowed. Since the released mod pack contains the license, you don't need to add another copy of the license by hand.
 
 ## Setting up your interface
-* Create a copy of `/interface/itemInterface/itemInterface.json` and `/interface/itemInterface/itemInterface.lua`, and give them a new name.
+
+* Create a copy of one of the two sample interfaces found in `/interface/sampleItemInterfaces/`, and give them a new (identical) name.
+ * EG. `itemInterfacePane.json` and `itemInterfacePane.lua` to `myPane.json` and `myPane.lua` respectively.
 * In the `json` file, update the script path so it points to your renamed script.
-* Set up your gui in the `gui` table. This works like setting up any other interface.
- * If the interface is not big enough for you, you can also change the `fileHeader`, `fileBody` adn `fileFooter`.
- * Custom images should work fine, even on servers.
+* Set up your interface like you would set up any other interface. If you don't know how, refer to assets, other mods or other guides.
+
+Custom images inside the interfaces work fine, even on servers.
 
 ## Setting up your item
-* Open the `item.txt` file. This file holds a `/spawnitem` command that can be pasted in-game to obtain the item that opens the custom interface.
- * If you want to set up multiple interfaces, it's recommended to create a copy of the file.
-* Change the `itemInterface` path to the path of the interface `json` file you made in [Setting up your interface](#setting-up-your-interface).
- * The key and value can be found near the beginning of the command, right after `shortdescription`, `description` and `category`.
+
+* Copy the `/interface/sampleItemInterfaces/spawnConsole.txt` (or `spawnPane.txt`) file. This file holds a `/spawnitem` command that can be pasted in-game to obtain the item that opens the custom sample interface.
+* In your copy, change the `itemInterface` path to the path of the interface `json` file you made in [Setting up your interface](#setting-up-your-interface).
+* Change (or set) the `itemInterfaceType` parameter to `ScriptPane` or `ScriptConsole`, if necessary. If this parameter is not present, `ScriptConsole` will be used.
 * Optionally, set other parameters such as the `shortdescription`, `description` and `category`.
 * Save the file.
 
 ## Getting your item
-* Open the `item.txt` file.
-* Select and copy all text (`ctrl+a ctrl+c`).
+
+* Open the spawnitem file you created in [Setting up your item](#setting-up-your-item).
+* Select and copy all text (<kbd>ctrl+a</kbd> <kbd>ctrl+c</kbd>).
  * If your text editor added a blank line at the end of the file, you'll need to manually remove this line before copying the command. Line breaks prevent you from pasting the command in-game.
-* Run the command in-game by pasting it in your chat. This will spawn the item at your cursor.
+* Run the command in-game by pasting it in your chat (<kbd>ctrl+v</kbd> <kbd>enter</kbd>). This will spawn the item at your cursor.
 
 ## Planned
-No additional features planned yet. Feel free to create a feature request by adding the `enhancement` tag to [a new Issue](https://github.com/Silverfeelin/Starbound-ItemInterfaces/issues/new).
+No additional features planned yet. Feel free to create a feature request by creating [a new Issue](https://github.com/Silverfeelin/Starbound-ItemInterfaces/issues/new).
 
 ## Potential Issues
+
 * This mod is incompatible with other mods that affect the `fossilbrush.lua` script. This script is used to keep the mod from causing issues on servers.
+* Although the script catches item interfaces that the client does not have (that is, the configuration file), it can cause a couple of seconds of lag the first time the item is held.
 
-## Licenses
-The icon used for the sample item is courtesy of Yusuke Kamiyamane, and can be found in his Fugue Icons pack. The icon pack falls under the Creative Commons 3.0 license.
-
-Yusuke Kamiyamane: http://p.yusukekamiyamane.com/about/
-Fugue Icons pack: http://p.yusukekamiyamane.com/
-Creative Commons 3.0: https://creativecommons.org/licenses/by/3.0/
