@@ -1,0 +1,23 @@
+{
+  "gui" : {
+    "background" : {
+      "zlevel" : 0,
+      "type" : "background",
+      "fileHeader" : "/interface/streamingvideo/header.png",
+      "fileBody" : "/interface/streamingvideo/body.png",
+      "fileFooter" : "/interface/streamingvideo/footer.png"
+    },
+    "close" : {
+      "type" : "button",
+      "base" : "/interface/inventory/x.png",
+      "hover" : "/interface/inventory/xhover.png",
+      "press" : "/interface/inventory/xpress.png",
+      "position" : [252, 206]
+    }
+  },
+
+  "scripts" : [
+    "/interface/sampleItemInterfaces/itemInterfacePane.lua"
+  ],
+  "scriptDelta" : 1
+}

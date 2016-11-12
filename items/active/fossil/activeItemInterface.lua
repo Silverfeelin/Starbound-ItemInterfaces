@@ -3,7 +3,7 @@
   This script will check if the active item has the parameter "itemInterface".
   If so, the callbacks of this script are used rather than the default script.
   The item will then open the interface from the path of the "itemInterface" parameter when activated.
-  
+
   Note that this file should be required in the init function of a vanilla active item script to prevent issues on servers.
   The first line in function init():
   if (require "/items/active/fossil/activeItemInterface.lua") then return end
@@ -44,10 +44,21 @@ end
 
 --[[
   Activation callback. Called when activating the item, regardless of the button used.
+  This item descriptor is added to the configuration's gui, which allows both
+  scripts for ScriptPanes and ScriptConsoles to fetch the data.
   @param fireMode - "primary" or "alt, indicating which mouse button is held down.
 ]]
 function itemInterface.activate(fireMode, shiftHeld)
-  activeItem.interact(interfaceType, activeItem.ownerEntityId(), root.assetJson(interfacePath))
+  local interfaceConfig = root.assetJson(interfacePath)
+
+  if not interfaceConfig.gui then interfaceConfig.gui = {} end
+  interfaceConfig.gui.activatedItem = {
+    type = "label",
+    visible = false,
+    data = item.descriptor()
+  }
+
+  activeItem.interact(interfaceType, activeItem.ownerEntityId(), interfaceConfig)
 end
 
 --[[
