@@ -17,7 +17,7 @@ By using the fossil brush script, the items and interfaces are vanilla-multiplay
 * Templates for both a `ScriptPane` and `ScriptConsole` item interface to get you started.
 
 ## Installation
-* [Download](https://github.com/Silverfeelin/Starbound-ItemInterfaces) the latest release.
+* [Download](https://github.com/Silverfeelin/Starbound-ItemInterfaces/releases) the latest release.
 * Place the `ItemInterfaces.pak` in your mod folder (`/Starbound/mods/ItemInterfaces.pak`).
 
 ## Wiki
