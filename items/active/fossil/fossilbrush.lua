@@ -3,7 +3,8 @@ require "/scripts/vec2.lua"
 
 function init()
   -- THIS LINE IS THE ONLY MODIFICATION TO THE VANILLA SCRIPT:
-  if require "/items/active/fossil/activeItemInterface.lua" then return end
+  require "/items/active/fossil/activeItemInterface.lua"
+  if itemInterface then return end
   
   self.idleArmAngle = config.getParameter("idleArmAngle", -1.25)
   self.idleBrushAngle = config.getParameter("idleBrushAngle", -0.2)

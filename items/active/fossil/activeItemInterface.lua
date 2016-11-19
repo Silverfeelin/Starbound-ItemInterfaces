@@ -72,7 +72,10 @@ end
   Init code.
   Pretend this is function init(); define variables here.
 ]]
-
+activeItem.setFrontArmFrame("idle.1")
+activeItem.setBackArmFrame("idle.1")
+activeItem.setArmAngle(0)
+  
 -- End Initialize
 
 --[[
