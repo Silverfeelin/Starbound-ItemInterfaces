@@ -12,6 +12,11 @@
 local interfacePath = config.getParameter("itemInterface")
 local interfaceType = config.getParameter("itemInterfaceType") or "ScriptConsole"
 
+local holding = config.getParameter("itemInterfaceHolding")
+if type(holding) == "boolean" then
+  activeItem.setHoldingItem(holding)
+end
+
 --[[
   Check if this item is a valid Item Interfaces active item.
 ]]
@@ -72,10 +77,7 @@ end
   Init code.
   Pretend this is function init(); define variables here.
 ]]
-activeItem.setFrontArmFrame("idle.1")
-activeItem.setBackArmFrame("idle.1")
-activeItem.setArmAngle(0)
-  
+
 -- End Initialize
 
 --[[
