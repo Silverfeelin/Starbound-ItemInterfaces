@@ -63,7 +63,8 @@ function itemInterface.activate(fireMode, shiftHeld)
     data = item.descriptor()
   }
 
-  activeItem.interact(interfaceType, activeItem.ownerEntityId(), interfaceConfig)
+
+  activeItem.interact(interfaceType, interfaceConfig)
 end
 
 --[[
