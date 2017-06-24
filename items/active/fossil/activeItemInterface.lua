@@ -13,6 +13,8 @@ local interfacePath = config.getParameter("itemInterface")
 local interfaceType = config.getParameter("itemInterfaceType") or "ScriptConsole"
 
 local holding = config.getParameter("itemInterfaceHolding")
+local requiredShiftHeld = config.getParameter("itemInterfaceShiftHeld")
+
 if type(holding) == "boolean" then
   activeItem.setHoldingItem(holding)
 end
@@ -35,7 +37,9 @@ end
   Item Interface table. Callbacks are stored here.
   You can use this table to store variables and functions, but feel free to define your own tables and variables.
 ]]
-itemInterface = {}
+itemInterface = {
+  version = "1.3.0.1"
+}
 
 --[[
   Update callback. Called every script.updateDt game ticks.
@@ -54,8 +58,14 @@ end
   @param fireMode - "primary" or "alt, indicating which mouse button is held down.
 ]]
 function itemInterface.activate(fireMode, shiftHeld)
+  -- Does shiftHeld match 'itemInterfaceShiftHeld'? Only matters if the parameter is defined on the item.
+  if requiredShiftHeld ~= nil and requiredShiftHeld ~= shiftHeld then
+    return
+  end
+
   local interfaceConfig = root.assetJson(interfacePath)
 
+  -- Add the item descriptor to the GUI configuration, so that it can be accessed from the interface.
   if not interfaceConfig.gui then interfaceConfig.gui = {} end
   interfaceConfig.gui.activatedItem = {
     type = "label",
@@ -63,7 +73,7 @@ function itemInterface.activate(fireMode, shiftHeld)
     data = item.descriptor()
   }
 
-
+  -- Open the interface.
   activeItem.interact(interfaceType, interfaceConfig)
 end
 
@@ -74,18 +84,10 @@ function itemInterface.uninit()
 
 end
 
---[[
-  Init code.
-  Pretend this is function init(); define variables here.
-]]
-
--- End Initialize
-
---[[
-  Code that makes the active item use the callbacks from this script rather than the original fossil brush callbacks.
-  Do not touch!
-]]
+-- Code that makes the active item use the callbacks from this script rather than the original fossil brush callbacks.
 update = itemInterface.update
 activate = itemInterface.activate
 uninit = itemInterface.uninit
-return true
+
+-- Because Starbound doesn't support return values when requiring scripts, the existance of the "itemInterface" table should be checked.
+-- The table is not defined if the item is not an ItemInterfaces item.
