@@ -1,1 +1,0 @@
-/spawnitem fossilbrushbeginner 1 '{"shortdescription":"Empty Window","description":"This item will open a custom ScriptConsole interface when activated.","category":"Item Interface","itemInterface":"/interface/sampleItemInterfaces/itemInterfaceConsole.json","rarity": "essential","inventoryIcon":"/interface/modsmenu/modicon.png"}'
