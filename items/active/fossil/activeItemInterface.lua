@@ -32,7 +32,7 @@ if type(interfaceConfig) == "string" then
   interfaceRequiresShift = config.getParameter("itemInterfaceShiftHeld")
   interfacePrimary = config.getParameter("itemInterfacePrimary")
   interfaceAlt = config.getParameter("itemInterfaceAlt")
-else
+elseif type(interfaceConfig) == "table" then
   interfacePath = interfaceConfig.path
   interfaceType = interfaceConfig.type
   interfaceHolding = interfaceConfig.holding
