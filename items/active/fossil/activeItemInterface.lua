@@ -110,6 +110,7 @@ function itemInterface.activate(fireMode, shiftHeld)
 
   -- Open the interface.
   activeItem.interact(interfaceType, interfaceConfig)
+  sb.logInfo("ItemInterfaces v%s opened an interface.", version)
 end
 
 -- Code that makes the active item use the callbacks from this script rather than the original fossil brush callbacks.
