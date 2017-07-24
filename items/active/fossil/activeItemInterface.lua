@@ -10,7 +10,7 @@
   if itemInterface then return end
 ]]
 
-local version = "1.3.1"
+local version = "1.3.2"
 local logError = function(msg, ...)
   sb.logError("ItemInterfaces %s: " .. msg, version, ...)
 end
